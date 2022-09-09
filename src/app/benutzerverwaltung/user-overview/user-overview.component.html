@@ -1,0 +1,11 @@
+<h1>Benutzerverwaltung</h1>
+<div *ngFor="let company of dataSource">
+    <div class="card">
+        <div class="card-head">
+            {{company.companyName}} - {{company.industry}}
+        </div>
+        <div class="card-body">
+            Mitarbeiter: {{company.employeeAmount}}
+        </div>
+    </div>
+</div>

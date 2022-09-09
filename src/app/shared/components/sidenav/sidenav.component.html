@@ -1,0 +1,42 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()">N</button>
+        <div class="logo-text" *ngIf="collapsed" >NBD</div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()" @rotate>
+            <i class="fal fa-times close-icon"></i>
+        </button>
+    </div>
+
+    <br>
+    <!--*ngIf="isAdmin()"-->
+    <ul class="sidenav-nav" >     
+        <li class="sidenav-nav-item" >
+            <a href="" class="sidenav-nav-link" [routerLink]="['user-overview']" routerLinkActive="active" 
+                routerLink="active">      
+                <i class="sidenav-link-icon fas fa-asterisk" ></i>
+                <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Benutzerverwaltung</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" >
+            <a href="" class="sidenav-nav-link" [routerLink]="['results']" routerLinkActive="active" 
+                routerLink="active">      
+                <i class="sidenav-link-icon fas fas fa-poll" ></i>
+                <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Auswertungen</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" >
+            <a href="" class="sidenav-nav-link" [routerLink]="['questionnaires']" routerLinkActive="active" 
+                routerLink="active">      
+                <i class="sidenav-link-icon far fa-question-circle" ></i>
+                <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Fragenverwaltung</span>
+            </a>
+        </li>
+        <li class="sidenav-nav-item" >
+            <a href="" class="sidenav-nav-link " [routerLink]="['login']" routerLinkActive="active" 
+                routerLink="active">        
+                <i class="sidenav-link-icon fas fa-user-alt"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Login</span>
+            </a>
+        </li>
+    </ul>
+</div>

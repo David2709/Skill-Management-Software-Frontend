@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<body>
+    <section class="login">
+        <div class="login_box">
+            <div class="left">
+                <div class="top_link"><a href="#"><img
+                            alt="">Access-Code anfordern</a></div>
+                <div class="contact">
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                        <h3>SIGN IN</h3>
+                        <input name="email" ngModel required #email="ngModel" type="text" placeholder="E-Mail">
+                        <input name="accessCode" ngModel required #accessCode="ngModel" type="text" placeholder="Access-Code">
+                        <button [disabled]="f.invalid" class="submit">LET'S GO</button>
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-text">
+                    <h2>NBD</h2>
+                    <h5>Wir inspirieren & unterstützen <br>Vertriebsorganisationen <br>im Digitalen Wandel</h5>
+                </div>
+                <div class="right-inductor"><img src="" alt=""></div>
+            </div>
+        </div>
+    </section>
+</body>
