@@ -1,0 +1,28 @@
+<h1>Unternehmen anlegen</h1>
+
+<form #companyForm="ngForm" (ngSubmit)="onCompanyCreate(companyForm.value)">
+    <div class="form-group">
+        <label for="questionnaireId">Fragebogen</label>
+        <input ngModel  type="text" class="form-control" name="questionnaireId"
+            placeholder="Fragebogen">
+    </div>
+    <div class="form-group">
+        <label for="companyName">Unternehmensbezeichnung</label>
+        <input ngModel  type="text" class="form-control" name="companyName"
+            placeholder="Unternehmensbezeichnung">
+    </div>
+    <div class="form-group">
+        <label for="industry">Branche</label>
+        <input ngModel  type="text" class="form-control" name="industry"
+            placeholder="Branche">
+    </div>
+    <div class="form-group">
+        <label for="employeeAmount">Mitarbeiteranzahl</label>
+        <input ngModel  type="text" class="form-control" name="employeeAmount"
+            placeholder="Mitarbeiteranzahl">
+    </div>
+
+    <button class="btn btn-success" type="submit" ><i class="fas fa-save"></i></button>
+</form>
+
+

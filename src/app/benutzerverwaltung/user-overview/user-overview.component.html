@@ -1,11 +1,35 @@
 <h1>Benutzerverwaltung</h1>
 <div *ngFor="let company of dataSource">
     <div class="card">
-        <div class="card-head">
-            {{company.companyName}} - {{company.industry}}
+        <div class="card-head" (click)="showEmployees(company.companyId)">
+            <input type="checkbox">
+            {{company.companyName}} - {{company.industry}}  
+            
+         
         </div>
+  
         <div class="card-body">
             Mitarbeiter: {{company.employeeAmount}}
         </div>
     </div>
 </div>
+<div *ngFor="let employee of dataSourceEmployees" >
+    <div class="card">
+        <div class="card-head">
+            {{employee.userId}} - {{employee.firstName}}  {{employee.lastName}} - {{employee.gender}}    
+        </div>
+        <div class="card-body">
+            E- Mail: {{employee.eMail}}
+        </div>  
+    </div>
+</div>
+
+<div class="footer">
+    <button class="custom-button">
+        Zugangscode versenden
+    </button>
+    <button class="custom-button-plus" (click)="addCompany()">
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
+

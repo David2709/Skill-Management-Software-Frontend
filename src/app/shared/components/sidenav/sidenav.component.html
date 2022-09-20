@@ -9,7 +9,7 @@
 
     <br>
     <!--*ngIf="isAdmin()"-->
-    <ul class="sidenav-nav" >     
+    <ul class="sidenav-nav" *ngIf="isAdmin()">     
         <li class="sidenav-nav-item" >
             <a href="" class="sidenav-nav-link" [routerLink]="['user-overview']" routerLinkActive="active" 
                 routerLink="active">      
@@ -17,14 +17,14 @@
                 <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Benutzerverwaltung</span>
             </a>
         </li>
-        <li class="sidenav-nav-item" >
+        <li class="sidenav-nav-item" *ngIf="isAdmin()">
             <a href="" class="sidenav-nav-link" [routerLink]="['results']" routerLinkActive="active" 
                 routerLink="active">      
                 <i class="sidenav-link-icon fas fas fa-poll" ></i>
                 <span class="sidenav-link-text" *ngIf="collapsed" @fadeInOut>Auswertungen</span>
             </a>
         </li>
-        <li class="sidenav-nav-item" >
+        <li class="sidenav-nav-item" *ngIf="isAdmin()">
             <a href="" class="sidenav-nav-link" [routerLink]="['questionnaires']" routerLinkActive="active" 
                 routerLink="active">      
                 <i class="sidenav-link-icon far fa-question-circle" ></i>

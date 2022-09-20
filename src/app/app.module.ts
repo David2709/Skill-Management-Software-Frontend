@@ -6,17 +6,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './benutzerverwaltung/auth/auth.module';
-import { UserOverviewComponent } from './benutzerverwaltung/user-overview/user-overview.component';
+import { DialogCompanyForm, UserOverviewComponent } from './benutzerverwaltung/user-overview/user-overview.component';
 import { BodyComponent } from './body/body.component';
 import { SharedModule } from './shared/shared.module';
 import { ResultsComponent } from './auswertungen/components/results/results.component';
 import { QuestionnairesComponent } from './fragebogenverwaltung/components/questionnaires/questionnaires.component';
+import { FormsModule } from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyComponent,
+    
     UserOverviewComponent,
+    DialogCompanyForm,
+
     ResultsComponent,
     QuestionnairesComponent,
   ],
@@ -26,9 +33,11 @@ import { QuestionnairesComponent } from './fragebogenverwaltung/components/quest
     BrowserAnimationsModule,
     SharedModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
