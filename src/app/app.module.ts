@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './benutzerverwaltung/auth/auth.module';
 import { DialogCompanyForm, UserOverviewComponent } from './benutzerverwaltung/user-overview/user-overview.component';
-import { BodyComponent } from './body/body.component';
+import { ContentComponent } from './content/content.component';
 import { SharedModule } from './shared/shared.module';
 import { ResultsComponent } from './auswertungen/components/results/results.component';
 import { QuestionnairesComponent } from './fragebogenverwaltung/components/questionnaires/questionnaires.component';
@@ -19,13 +19,12 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    BodyComponent,
-    
+    ContentComponent,
     UserOverviewComponent,
     DialogCompanyForm,
-
     ResultsComponent,
     QuestionnairesComponent,
+
   ],
   imports: [
     BrowserModule,

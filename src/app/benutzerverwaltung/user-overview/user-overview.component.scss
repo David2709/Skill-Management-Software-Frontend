@@ -19,37 +19,8 @@
     }
 }
 
-.custom-button{
-    border: none;
-    padding: 15px 50px;
-    border-radius: 8px;
-    display: flexbox;
- 
-    margin-top: 100px;
-    margin-left: 20px;
-    background: #686b5a;
-    color: #fff;
-    font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px #686b5a;
-    -moz-box-shadow: 0px 9px 15px -11px #686b5a;
-    box-shadow: 0px 9px 15px -11px #686b5a;
-} 
 
-.custom-button-plus{
-    border: none;
-    padding: 15px 50px;
-    border-radius: 8px;
-    display: flexbox;
- 
-    margin-top: 100px;
-    margin-left: 20px;
-    background: #779663b6;
-    color: #fff;
-    font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px #686b5a;
-    -moz-box-shadow: 0px 9px 15px -11px #686b5a;
-    box-shadow: 0px 9px 15px -11px #686b5a;
-} 
+
 
 .card-head:hover{
     cursor: pointer;
@@ -58,8 +29,18 @@
 .footer{
     position: fixed;
     bottom: 2%;
+    right: 5%;
 }
 
 button:hover{
     cursor: pointer;
 }
+
+
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

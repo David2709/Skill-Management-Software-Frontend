@@ -69,7 +69,7 @@ onResize(event: any){
   }
 
   isAdmin(): boolean{
-    console.log('Role bool:' + this.authService.currentUser.role == 'Admin' ? true : false);
+  
     return this.authService.currentUser.role == 'Admin' ? true : false;
   }
 

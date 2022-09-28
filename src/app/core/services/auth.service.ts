@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { IUser } from 'src/app/benutzerverwaltung/auth/IUser';
+import { IUser } from 'src/app/benutzerverwaltung/models/IUser';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,4 @@
 export interface IEmployee{
-    userId: number,
     companyId: number,
     eMail: string,
     firstName: string,

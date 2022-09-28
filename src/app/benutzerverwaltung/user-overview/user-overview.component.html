@@ -1,35 +1,96 @@
-<h1>Benutzerverwaltung</h1>
-<div *ngFor="let company of dataSource">
-    <div class="card">
-        <div class="card-head" (click)="showEmployees(company.companyId)">
-            <input type="checkbox">
-            {{company.companyName}} - {{company.industry}}  
-            
-         
-        </div>
-  
-        <div class="card-body">
-            Mitarbeiter: {{company.employeeAmount}}
-        </div>
-    </div>
-</div>
-<div *ngFor="let employee of dataSourceEmployees" >
-    <div class="card">
-        <div class="card-head">
-            {{employee.userId}} - {{employee.firstName}}  {{employee.lastName}} - {{employee.gender}}    
-        </div>
-        <div class="card-body">
-            E- Mail: {{employee.eMail}}
-        </div>  
-    </div>
-</div>
+<h1
+    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+    Benutzerverwaltung
+    <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Firmen und Benutzer anlegen und den
+        Zugang dieser freischalten</p>
 
-<div class="footer">
-    <button class="custom-button">
-        Zugangscode versenden
-    </button>
-    <button class="custom-button-plus" (click)="addCompany()">
-        <i class="fas fa-plus"></i>
-    </button>
-</div>
+    <div *ngIf="!isCompanyClicked">
+
+
+
+        <div *ngFor="let company of dataSource let index=index">
+            <div class="card">
+                <div class="card-head">
+                    <input id="default-checkbox" type="checkbox" value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+
+                    <div (click)="showEmployees(company,index)">{{company.companyName}} - {{company.industry}}</div>
+                </div>
+                <div class="card-body">        
+                    <h3>Mitarbeiter: {{company.employeeAmount}}</h3>
+                    
+                    <button (click)="openDeleteConfirmation(index)" type="button"
+                    class="absolute  right-20 h-15 w-25 text-white bg-red from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><svg
+                        class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg></button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="isCompanyClicked">
+        <div class="card">
+            <div class="card-head">
+                <h1
+                    class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    {{companySelected.companyName}}</h1>
+                <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Diese Firma ist in der
+                    Branche {{companySelected.industry}} tätig und hat insgesamt {{companySelected.employeeAmount}}
+                    Mitarbeiter.</p>
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+
+
+            <div *ngFor="let employee of dataSourceEmployees">
+                <div class="card-head">
+                    <input (change)="checkBoxChanged(employee.eMail)" id="default-checkbox" type="checkbox" value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <div>{{employee.firstName}} {{employee.lastName}} - {{employee.gender}}</div>
+                </div>
+
+                <div class="card-body">
+                    <h3> E-Mail: {{employee.eMail}}</h3>
+                    <h3> Rolle: {{employee.role}}</h3>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        
+        <button type="button" (click)="addCompany()"
+            class=" text-white bg-lightGreen hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-6 py-5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg></button>
+
+        <div *ngIf="isCompanyClicked">
+            <button (click)="sendAccess()" type="button"
+            class=" text-white  bg-darkGreen focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Zugangscode versenden</button>
+            <button (click)="backToCompanyOverview()" type="button"
+                class="custom-button text-white bg-lightGreen bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Zurück</button>
+
+            <button (click)="addUser()" type="button"
+                class="custom-button text-white  bg-darkGreen bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Benutzer anlegen</button>
+        </div>
+        
+    </div>
+
+
+
 
